@@ -1,4 +1,4 @@
-package lambda.functional.builtin;
+package lambda.functional.interfaces.builtin;
 
 @FunctionalInterface
 interface Gorilla {
