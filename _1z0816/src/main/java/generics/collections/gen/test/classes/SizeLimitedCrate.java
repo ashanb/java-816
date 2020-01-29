@@ -1,6 +1,4 @@
-package topic3.generics.test.classes;
-
-import topic3.generics.test.classes.Elephant;
+package generics.collections.gen.test.classes;
 
 public class SizeLimitedCrate<T, U> {
     private T contents;

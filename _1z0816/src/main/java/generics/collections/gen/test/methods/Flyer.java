@@ -1,4 +1,4 @@
-package topic3.generics.test.methods;
+package generics.collections.gen.test.methods;
 
 interface Flyer {
     void fly();

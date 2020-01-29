@@ -1,4 +1,4 @@
-package topic3.generics.test.classes;
+package generics.collections.gen.test.classes;
 
 public class Crate<T> {
     private T contents;

@@ -1,4 +1,4 @@
-package topic3.collections.test;
+package generics.collections.collections.test;
 
 import java.util.*;
 

@@ -1,4 +1,4 @@
-package topic3.generics.test.interfaces;
+package generics.collections.gen.test.interfaces;
 
 class ShippableAbstractCrate<U> implements Shippable<U> {
 

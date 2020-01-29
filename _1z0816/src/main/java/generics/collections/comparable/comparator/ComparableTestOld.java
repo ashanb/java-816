@@ -1,4 +1,4 @@
-package topic3.comparable.comparator;
+package generics.collections.comparable.comparator;
 
 public class ComparableTestOld {
 }

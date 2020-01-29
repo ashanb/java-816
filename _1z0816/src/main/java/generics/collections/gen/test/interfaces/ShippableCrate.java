@@ -1,4 +1,4 @@
-package topic3.generics.test.interfaces;
+package generics.collections.gen.test.interfaces;
 
 class ShippableCrate implements Shippable {
     public void ship(Object t) { }

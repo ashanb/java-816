@@ -1,4 +1,4 @@
-package topic3.generics.test.complex;
+package generics.collections.gen.test.complex;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,6 +1,6 @@
-package topic3.generics.test.methods;
+package generics.collections.gen.test.methods;
 
-import topic3.generics.test.classes.Crate;
+import generics.collections.gen.test.classes.Crate;
 
 import java.util.ArrayList;
 import java.util.List;
