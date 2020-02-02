@@ -11,22 +11,17 @@
  *  VIOLATIONS OF ANY COPYRIGHT IS PUNISHABLE BY LAW AND CAN LEAD
  *  TO UP TO TWO YEARS OF IMPRISONMENT AND LIABILITY TO PAY DAMAGES.
  */
-package concurrency.t1;
+package concurrency.runnable;
 
 /**
  * @author Ashan
  */
-public class CheckResults {
-   private static int counter = 0;
+public class ReadInventoryThread extends Thread {
+   public void run() {
+      System.out.println("Printing zoo inventory");
+   }
 
-   public static void main(String[] args) throws InterruptedException {
-      new Thread(() -> {
-         for (int i = 0; i < 500; i++) CheckResults.counter++;
-      }).start();
-      while (CheckResults.counter < 100) {
-         System.out.println("Not reached yet");
-         Thread.sleep(1000); // 1 SECOND
-      }
-      System.out.println("Reached!");
+   public static void main(String[] args) {
+      (new ReadInventoryThread()).start();
    }
 }

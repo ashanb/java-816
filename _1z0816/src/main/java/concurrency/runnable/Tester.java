@@ -11,7 +11,7 @@
  *  VIOLATIONS OF ANY COPYRIGHT IS PUNISHABLE BY LAW AND CAN LEAD
  *  TO UP TO TWO YEARS OF IMPRISONMENT AND LIABILITY TO PAY DAMAGES.
  */
-package concurrency.t1;
+package concurrency.runnable;
 
 /**
  * @author Ashan

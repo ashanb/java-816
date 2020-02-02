@@ -11,17 +11,18 @@
  *  VIOLATIONS OF ANY COPYRIGHT IS PUNISHABLE BY LAW AND CAN LEAD
  *  TO UP TO TWO YEARS OF IMPRISONMENT AND LIABILITY TO PAY DAMAGES.
  */
-package concurrency.t1;
+package concurrency.runnable;
 
 /**
  * @author Ashan
  */
-public class ReadInventoryThread extends Thread {
+public class PrintData implements Runnable {
    public void run() {
-      System.out.println("Printing zoo inventory");
+      for (int i = 0; i < 3; i++)
+         System.out.println("Printing record: " + i);
    }
 
    public static void main(String[] args) {
-      (new ReadInventoryThread()).start();
+      (new Thread(new PrintData())).start();
    }
 }
