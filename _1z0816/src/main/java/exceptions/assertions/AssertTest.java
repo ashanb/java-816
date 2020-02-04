@@ -14,7 +14,7 @@
 package exceptions.assertions;
 
 /**
- * @author IFS RnD
+ * @author Ashan
  */
 public class AssertTest {
    public enum Seasons {

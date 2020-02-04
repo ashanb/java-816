@@ -14,7 +14,7 @@
 package exceptions;
 
 /**
- * @author IFS RnD
+ * @author Ashan
  */
 public class JammedTurkeyCage implements AutoCloseable {
    public void close() throws IllegalStateException {
