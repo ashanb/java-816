@@ -1,6 +1,6 @@
-package modules;
+package nio2;
 
-public class modulesTester {
+public class FilesStreamTester {
    public static void main(String[] args) {
 
    }

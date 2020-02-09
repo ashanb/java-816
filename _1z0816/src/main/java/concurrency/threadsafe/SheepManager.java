@@ -11,14 +11,14 @@ public class SheepManager {
    // private AtomicInteger sheepCount2 = new AtomicInteger(0); // guarantees that it does not print the same thing
    private void incrementAndReport() {
       synchronized (lock) { // to preserve ordering.
-         System.out.print((++sheepCount)+" ");
+         System.out.print((++sheepCount) + " ");
          printDaysWork(sheepCount);
       }
       //System.out.print(sheepCount2.incrementAndGet() + " ");
    }
 
    public static void printDaysWork(int sheepCount) {
-      synchronized(SheepManager.class) {
+      synchronized (SheepManager.class) {
          System.out.println("Finished work" + sheepCount);
       }
    }
@@ -28,12 +28,12 @@ public class SheepManager {
       try {
          service = Executors.newFixedThreadPool(100);
          SheepManager manager = new SheepManager();
-         for(int i=0; i<10; i++)
+         for (int i = 0; i < 10; i++)
             //synchronized (manager) {  // include order of calling, but this works only for thread creation, synchronized does not add big value.
-               service.submit(() -> manager.incrementAndReport());
-           // }
+            service.submit(() -> manager.incrementAndReport());
+         // }
       } finally {
-         if(service != null) service.shutdown();
+         if (service != null) service.shutdown();
       }
    }
 }
