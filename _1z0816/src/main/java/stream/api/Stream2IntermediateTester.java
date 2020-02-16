@@ -22,7 +22,7 @@ public class Stream2IntermediateTester {
       System.out.println("\n--------------------limit() and skip()");
 
       Stream<Integer> s2 = Stream.iterate(1, n -> n + 1);
-      s2.skip(5).limit(2).forEach(System.out::print); // 67
+      s2.skip(5).limit(2).forEach(System.out::print); // 67    (start from 6 and at 7)
 
       System.out.println("\n--------------------map()");
 

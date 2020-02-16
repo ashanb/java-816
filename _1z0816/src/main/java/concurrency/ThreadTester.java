@@ -16,7 +16,7 @@ package concurrency;
 /**
  * @author Ashan
  */
-public class ThreadTester {
+public class ThreadTester extends Thread {
    public static void main(String[] args) {
 //      () -> System.out.println("Hello World")
 //      () -> {int i=10; i++;}

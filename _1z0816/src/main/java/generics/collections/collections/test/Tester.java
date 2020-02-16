@@ -101,8 +101,8 @@ public class Tester {
 
         // "offer" adds an element back of the queue.
         // "push" adds an element front of the queue.
-        // "peek" returns next element
-        // "pull" returns next element and remove.
+        // "peek" Returns next element or returns null if empty queue
+        // "pool" Removes and returns next element or returns null if empty queue
 
         Queue<Integer> queue = new ArrayDeque<>();
         System.out.println(queue.offer(10)); // true
@@ -113,6 +113,8 @@ public class Tester {
         System.out.println(queue.peek()); // null
 
         // Stack
+
+        // "pop" removes and returns next element or throws an exception if empty queue
 
         ArrayDeque<Integer> stack = new ArrayDeque<>();
         stack.push(10);

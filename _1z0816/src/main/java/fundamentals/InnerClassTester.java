@@ -8,6 +8,8 @@ class Demo {
 
 class Outer {
    class Inner {    // Simple nested inner class    // 1. Nested Inner class
+      // 8
+      // public static int x = 10; // inner classes can not have static declarations
       public void show() {
          System.out.println("In a nested class method");
       }
@@ -21,6 +23,10 @@ class Outer {
    static class StaticInner { // only inside a class  // remember   // 3. Static nested classes
       void innerMethod() {
          System.out.println("inside innerMethod");
+      }
+
+      static void staticShow() {                           // 4. static method inside a static nested class
+         System.out.println("In a static class static method");
       }
    }
 
@@ -45,7 +51,6 @@ class Outer {
 }
 
 public class InnerClassTester {
-
    //  An anonymous class with Demo as base class
    static Demo d = new Demo() {    // 4. Anonymous inner classes
       void show() {
