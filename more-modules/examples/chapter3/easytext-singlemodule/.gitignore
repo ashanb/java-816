@@ -1,5 +1,5 @@
 /target/
-/.idea/
+.idea/
 *.iml
 /mods/easytext.jar
 /src/easytext/easytext.iml
