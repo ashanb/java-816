@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/src/easytext/easytext.iml" filepath="$PROJECT_DIR$/src/easytext/easytext.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/easytext-singlemodule.iml" filepath="$PROJECT_DIR$/.idea/easytext-singlemodule.iml" />
+    </modules>
+  </component>
+</project>
