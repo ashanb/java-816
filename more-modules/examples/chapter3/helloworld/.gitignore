@@ -1,0 +1,7 @@
+/target/
+/.idea/
+*.iml
+/mods/
+/out/
+/image/
+/.idea/

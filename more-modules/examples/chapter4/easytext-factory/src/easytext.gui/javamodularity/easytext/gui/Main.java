@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javafx.application.Application;
+import javafx.event.*;
 import javafx.geometry.*;
 import javafx.scene.*;
 import javafx.scene.control.*;
@@ -11,13 +12,7 @@ import javafx.scene.layout.*;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
-import javamodularity.easytext.analysis.FleschKincaid;
-
-// for the IDE: you have to give the library path
-
-// Compile: javac -p C:\bins\javafx-jmods -d out --module-source-path src -m easytext.cli,easytext.gui,easytext.analysis
-
-// Run: java -p C:\bins\javafx-sdk-11.0.2\lib\;out -m easytext.gui/javamodularity.easytext.gui.Main
+import javamodularity.easytext.analysis.factory.AnalyzerFactory;
 
 public class Main extends Application {
 
@@ -26,7 +21,7 @@ public class Main extends Application {
     private static Text output;
 
     public static void main(String[] args) {
-        Application.launch(args);
+        launch(args);
     }
 
     @Override
@@ -43,7 +38,10 @@ public class Main extends Application {
         vbox.setSpacing(3);
         Text title = new Text("Choose an algorithm:");
         algorithm = new ComboBox<>();
-        algorithm.getItems().add("Flesch-Kincaid");
+
+        for(String name: AnalyzerFactory.getSupportedAnalyses()) {
+          algorithm.getItems().add(name);
+        }
 
         vbox.getChildren().add(title);
         vbox.getChildren().add(algorithm);
@@ -62,7 +60,7 @@ public class Main extends Application {
     private String analyze(String input, String algorithm) {
         List<List<String>> sentences = toSentences(input);
 
-        return "Flesch-Kincaid: " + new FleschKincaid().analyze(sentences);
+        return algorithm + ": " + AnalyzerFactory.getAnalyzer(algorithm).analyze(sentences);
     }
 
 

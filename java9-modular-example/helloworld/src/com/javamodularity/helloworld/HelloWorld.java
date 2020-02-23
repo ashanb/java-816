@@ -5,6 +5,10 @@ public class HelloWorld {
    public static void main(String... args) {
       System.out.println("Hello Modular World!");
    }
+
+   // Due to the way I have created this modules
+   // Compile is different than others (ex: javac -d out --module-source-path src -m helloworld)
+
    // compile modules:  javac -d output/helloworld helloworld/src/com/javamodularity/helloworld/HelloWorld.java helloworld/src/module-info.java
 
    // package: jar -cfe mods/helloworld.jar com.javamodularity.helloworld.HelloWorld -C output/helloworld .
