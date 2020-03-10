@@ -76,6 +76,16 @@ class ConcurrentCollectedZooManager {
       System.out.println(deque.peek());
       System.out.println(deque.pop());
 
+      System.out.println("---------------------- ArrayDeque");
+
+      Deque<Integer> d = new ArrayDeque<>();
+      d.push(1);
+      d.push(2);
+      d.push(3);
+      System.out.println(d.remove());
+      System.out.println(d.remove());
+      System.out.println(d.remove());
+
       System.out.println("---------------------- LinkedBlockingQueue");
       try {
          BlockingQueue<Integer> blockingQueue = new LinkedBlockingQueue<>();

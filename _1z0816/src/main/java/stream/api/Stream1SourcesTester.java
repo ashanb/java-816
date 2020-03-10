@@ -1,11 +1,11 @@
 package stream.api;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.Optional;
-import java.util.TreeSet;
+import generics.collections.comparable.comparator.ComparableTest1;
+
+import java.util.*;
 import java.util.function.BinaryOperator;
 import java.util.function.Predicate;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class Stream1SourcesTester {
@@ -78,6 +78,11 @@ public class Stream1SourcesTester {
       Stream<Integer> stream1 = Stream.of(3, 5, 6);
       System.out.println(stream1.reduce(1, (a, b) -> a*b));
 
+      Stream<String> opsStream = Stream.of("w", "o", "l", "f");
+
+      BinaryOperator<String> ops = (a, b) -> a + b;
+      opsStream.reduce(ops).ifPresent(System.out::println); // wolf
+
       BinaryOperator<Integer> op = (a, b) -> a * b;
       Stream<Integer> empty = Stream.empty();
       Stream<Integer> oneElement = Stream.of(3);
@@ -94,12 +99,15 @@ public class Stream1SourcesTester {
       System.out.println("\n--------------------collect()");
 
       Stream<String> stream4 = Stream.of("w", "o", "l", "f");
-      StringBuilder word2 = stream.collect(StringBuilder::new, StringBuilder::append, StringBuilder::append);
-
+      StringBuilder word2 = stream4.collect(StringBuilder::new, StringBuilder::append, StringBuilder::append);
+      System.out.println(word2.toString());
 
       Stream<String> stream5 = Stream.of("w", "o", "l", "f");
-      TreeSet<String> set = stream.collect(TreeSet::new, TreeSet::add,
-              TreeSet::addAll);
+      TreeSet<String> set = stream5.collect(TreeSet::new, TreeSet::add, TreeSet::addAll);
+      System.out.println(set); // [f, l, o, w]
+
+      Stream<String> stream6 = Stream.of("w", "o", "l", "f");
+      TreeSet<String> set2 = stream6.collect(Collectors.toCollection(TreeSet::new));
       System.out.println(set); // [f, l, o, w]
    }
 }

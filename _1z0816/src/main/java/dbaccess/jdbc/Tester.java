@@ -14,6 +14,7 @@
 package dbaccess.jdbc;
 
 import java.sql.*;
+import java.util.Properties;
 
 /**
  * @author Ashan
@@ -22,7 +23,11 @@ public class Tester {
    // good.
       public static void main(String[] args) throws SQLException {
          String url = "jdbc:derby:zoo";
-         try (Connection conn = DriverManager.getConnection(url);
+
+         Properties p = new Properties();
+         p.setProperty("user", "ee");
+         p.setProperty("password", "ee");
+         try (Connection conn = DriverManager.getConnection(url, p);
               Statement stmt = conn.createStatement();
               ResultSet rs = stmt.executeQuery("select name from animal")) {
             while (rs.next())

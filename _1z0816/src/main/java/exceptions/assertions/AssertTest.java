@@ -23,10 +23,23 @@ public class AssertTest {
 
    public static void main(String[] args) {
       int numGuests = -5;
+      String s = "5";
+      boolean b = true;
       assert numGuests < 0;
+
+      assert s != null;
+
+      // assert c = "5";
       System.out.println(numGuests);
 
       test(Seasons.WINTER);
+
+      processPhoneNumber(null);
+
+   }
+
+   public static void processPhoneNumber(String number) {
+      assert number != null && number.length() == 10 : "Invalid phone number";
    }
 
    public static void test(Seasons s) {

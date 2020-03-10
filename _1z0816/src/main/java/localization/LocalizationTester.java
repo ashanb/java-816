@@ -1,6 +1,7 @@
 package localization;
 
 import java.util.Locale;
+import java.util.ResourceBundle;
 
 public class LocalizationTester {
    public static void main(String[] args) {
@@ -36,5 +37,15 @@ public class LocalizationTester {
       Locale locale = new Locale("fr");
       Locale.setDefault(locale); // change the default
       System.out.println("Changed Default:" + Locale.getDefault()); // fr
+
+
+      Locale myLoc = new Locale("fr", "FR");
+
+      ResourceBundle rb = ResourceBundle.getBundle("appmessages", myLoc);
+
+      rb = ResourceBundle.getBundle("appmessages", new Locale("ch", "CH"));
+
+      rb = ResourceBundle.getBundle("appmessages", Locale.CHINA);
+
    }
 }

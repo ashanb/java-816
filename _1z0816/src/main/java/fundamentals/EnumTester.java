@@ -3,8 +3,8 @@ package fundamentals;
 import java.util.ArrayList;
 
 enum Days {
-   SUNDAY, MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY; // outside
-}
+   SUNDAY, MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY // outside
+};
 
 public class EnumTester {
 

@@ -4,8 +4,7 @@ import java.io.*;
 public class CopyBufferFileSample {
    public static void copy(File source, File destination) throws IOException {// performance improvement for using both the Buffered classes
                                                                               // and byte arrays is an order of magnitude faster in practice
-      try (
-              InputStream in = new BufferedInputStream(new FileInputStream(source));
+      try (InputStream in = new BufferedInputStream(new FileInputStream(source));
               OutputStream out = new BufferedOutputStream(
                       new FileOutputStream(destination))) {
          byte[] buffer = new byte[1024];

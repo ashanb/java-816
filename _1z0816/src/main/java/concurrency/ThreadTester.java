@@ -13,6 +13,8 @@
  */
 package concurrency;
 
+import java.util.concurrent.locks.ReentrantLock;
+
 /**
  * @author Ashan
  */
@@ -22,6 +24,13 @@ public class ThreadTester extends Thread {
 //      () -> {int i=10; i++;}
 //      () -> {return;}
 //      () -> {}
+
+
+//      ReentrantLock rlock = new ReentrantLock();
+//      boolean f1 = rlock.lock();
+//      System.out.println(f1);
+//      boolean f2 = rlock.lock();
+//      System.out.println(f2);
    }
 }
 

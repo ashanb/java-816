@@ -101,6 +101,9 @@ public class PathTester {
 
       System.out.println("----------------------------------------------------------------- Creating a New Path with subpath()");
 
+
+      System.out.println(Paths.get("C:\\Users\\Ashan\\IdeaProjects\\java-816\\_1z0816\\src\\main\\resources\\io\\zoo.txt").subpath(0, 2));
+
       Path path17 = Paths.get("/src/main/resources/io/zoo.txt");
       System.out.println("Path is: "+ path17);
       System.out.println("Subpath from 0 to 3 is: "+path17.subpath(0,3)); // src\main\resources
@@ -120,29 +123,73 @@ public class PathTester {
 
       Path path18 = Paths.get("/src/main/resources/zoo.properties");
       Path path19 = Paths.get("/src/main/resources/io/zoo.txt");
-      System.out.println(path18.relativize(path19)); // ..\io\zoo.txt
-      System.out.println(path19.relativize(path18)); // ..\..\zoo.properties   // not 100% sure, to come from file to parent ../ should be there (../ -> io -> ../ -> resources)
+      System.out.println(path18.relativize(path19)); // ..\io\zoo.txt  // got it
+      System.out.println(path19.relativize(path18)); // ..\..\zoo.properties   // got it
+
+      Path path181 = Paths.get("/src/main/resources/io/a/b/c/my.txt");
+      Path path191 = Paths.get("/src/main/resources/io/a/my2.txt");
+
+      System.out.println(path181.relativize(path191)); // ..\..\..\my2.txt // got it
+      System.out.println(path191.relativize(path181)); // ..\b\c\my.txt // got it
+
+      Path path182 = Paths.get("C:\\Users\\Ashan\\IdeaProjects\\java-816\\_1z0816\\src\\main\\resources\\io\\a\\b\\c\\my.txt"); // no difference with the previous
+      Path path192 = Paths.get("C:\\Users\\Ashan\\IdeaProjects\\java-816\\_1z0816\\src\\main\\resources\\io\\a\\my2.txt"); // no difference with the previous
+
+      System.out.println(path182.relativize(path192)); //
+      System.out.println(path192.relativize(path182)); //
+
+      Path path183 = Paths.get("src/main/resources/io/a/b/c/my.txt");
+      Path path193 = Paths.get("src/main/resources/io/a/my2.txt"); // no difference with the previous
+
+      // System.out.println(path191.relativize(path193)); // Exception at runtime (can not mix)
+
+      System.out.println("path183.relativize(path193) :" +path183.relativize(path193)); // ..\..\..\my2.txt // got it correctly
 
       System.out.println("----------------------------------------------------------------- Path Objects with resolve()");
 
       final Path path20 = Paths.get("/src/main/resources/io/zoo.txt");
-      final Path path21 = Paths.get("zoo.log"); // meaningless shit :/  \src\main\resources\io\zoo.txt\zoo.log
+      final Path path21 = Paths.get("src/main/zoo.log"); // meaningless shit :/  \src\main\resources\io\zoo.txt\zoo.log
       System.out.println(path20.resolve(path21));
+
+      ///////////////
+
+      // 181 : "/src/main/resources/io/a/b/c/my.txt" (absoulte)
+      // 183 : "src/main/resources/io/a/b/c/my.txt" (relative)
+
+      // 191 : "/src/main/resources/io/a/my2.txt" (absoulte)
+      // 193 : "src/main/resources/io/a/my2.txt" (relative)
+
+      // mixing absolute to absolute (191)
+      System.out.println(" // mixing absolute to absolute: " + path181.resolve(path191));  // mixing absolute to absolute: \src\main\resources\io\a\my2.txt (191)
+
+      // mixing relative (183) to relative (193)
+      System.out.println(" // mixing relative to relative: " + path183.resolve(path193));  // src\main\resources\io\a\b\c\my.txt\src\main\resources\io\a\my2.txt path183 \ path193
+
+      // mixing absolute to relative (193)
+      System.out.println("mixing absolute to relative: " + path191.resolve(path193)); // \src\main\resources\io\a\my2.txt\src\main\resources\io\a\my2.txt (191) \ path193
+
+      // mixing relative (193) to absolute (191)
+      System.out.println(" // mixing relative to absolute: " + path193.resolve(path191));  // mixing relative to absolute: \src\main\resources\io\a\my2.txt (191)
+
 
       System.out.println("----------------------------------------------------------------- normalize()");
 
-      Path path22 = Paths.get("C:\\Users\\Ashan\\IdeaProjects\\java-816\\_1z0816\\src\\main\\resources\\io\\zoo.txt");
-      Path path23 = Paths.get("C:\\Users\\Ashan\\IdeaProjects\\java-816\\_1z0816\\src\\main\\resources\\zoo.properties");
-      Path relativePath = path22.relativize(path23);
-      System.out.println(path23.resolve(relativePath)); // meaningless shit :/
+      Path path22 = Paths.get("/src/main/resources/io/a/b/c/my.txt");
+      Path path23 = Paths.get("/src/main/resources/io/a/my2.txt");
+      Path relativePath = path22.relativize(path23); // ..\..\..\my2.txt
+      System.out.println(path23.resolve(relativePath)); // \src\main\resources\io\a\my2.txt\..\..\..\my2.txt
+
+      System.out.println("normalize (\\src\\main\\resources\\io\\a\\my2.txt\\..\\..\\..\\my2.txt) : " + path23.resolve(relativePath).normalize()); // \src\main\resources\my2.txt   (jump with spaces) :)
 
       System.out.println("----------------------------------------------------------------- toRealPath()"); // meaningless shit :/
 
+      // ------------------Works with symbolic links--------------------------
       try {
-         System.out.println(Paths.get("/src/main/resources/io/zoo.txt").toRealPath());
-         System.out.println(Paths.get(".././resources/zoo.properties").toRealPath());
+         System.out.println("Working Dir:" + System.getProperty("user.dir"));  // D:\JavaSE\SE 2\work\java-816\_1z0816
+         System.out.println("Path: " + "D:\\JavaSE\\SE 2\\work\\java-816\\_1z0816\\src\\main\\resources\\io\\a\\my2.txt");
+         System.out.println("toRealPath: " + Paths.get( "D:\\JavaSE\\SE 2\\work\\java-816\\_1z0816\\src\\main\\resources\\io\\a\\my2.txt").toRealPath());
       } catch (IOException e) {
-         System.out.println(e.getMessage());
+         throw e;
       }
 
    }

@@ -1,9 +1,14 @@
 package generics.collections.collections.test;
 
+import java.io.Serializable;
 import java.util.*;
+import java.util.concurrent.ConcurrentMap;
 
-public class Tester {
+public class Tester implements Serializable {
     public static void main(String[] args) {
+
+        HashMap<String, String> stringStringHashMap = new HashMap<>();
+        ////////////////////////////////////
         // Collections
         // List
 

@@ -1,11 +1,13 @@
 package localization.format.datentime;
 
+import java.text.DateFormat;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.Month;
 import java.time.format.DateTimeFormatter;
 import java.time.format.FormatStyle;
+import java.util.Locale;
 
 public class FormatDateNTime {
    public static void main(String[] args) {
@@ -58,7 +60,7 @@ public class FormatDateNTime {
 
 
       System.out.println("-----------------------DateTimeFormatter.ofPattern hh:mm");
-      DateTimeFormatter f2 = DateTimeFormatter.ofPattern("hh:mm");
+      DateTimeFormatter f2 = DateTimeFormatter.ofPattern("hh:mm", new Locale("", ""));  // locale
       System.out.println(f2.format(dateTime));
       //System.out.printf(f2.format(date)); // Runtime  UnsupportedTemporalTypeException: Unsupported field: ClockHourOfAmPm
       System.out.println(f2.format(time));
@@ -70,5 +72,11 @@ public class FormatDateNTime {
       LocalTime time1 = LocalTime.parse("11:22");
       System.out.println(date1); // 2015–01–02
       System.out.println(time1); // 11:22
+
+      System.out.println("------------------------------------");
+
+//      LocalDate d = LocalDate.now();
+//      DateFormat df = new DateFormat(DateFormat.LONG);
+//      System.out.println(df.format(d))
    }
 }

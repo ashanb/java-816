@@ -17,6 +17,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Optional;
 import java.util.function.BiConsumer;
 import java.util.function.BiFunction;
 import java.util.function.BiPredicate;
@@ -32,6 +33,9 @@ import java.util.function.UnaryOperator;
  */
 public class Tester {
    public static void main(String[] args) {
+//      Consumer x = System.out::println;
+//      Consumer x2 = (m)->{ };
+
       // Supplier LocalDate Factory
       final Supplier<LocalDate> s1 = LocalDate::now;
       final Supplier<LocalDate> s2 = () -> LocalDate.now();
@@ -66,7 +70,7 @@ public class Tester {
       // Consumer and bi-consumer
 
       final Consumer<String> c1 = System.out::println;
-      final Consumer<String> c2 = x -> System.out.println(x);
+      final Consumer<String> c2 = (x) -> System.out.println(x);
       c1.accept("Annie");
       c2.accept("Annie");
 
@@ -84,8 +88,22 @@ public class Tester {
       System.out.println(b12.test("chicken", "chick"));
       System.out.println(b22.test("chicken", "chick"));
 
-      final Predicate<String> brownEggs = s -> s.contains("egg") && s.contains("brown");
+
+
+      final Predicate<String> brownEggs = s -> s.contains("egg");
       final Predicate<String> otherEggs = s -> s.contains("egg") && ! s.contains("brown");
+
+      // 2 type (be careful   logic is other way round :) )
+      String str = "egg";
+      final Predicate<String> testEggs = str::contains;
+      final Predicate<String> brownEggs2 = s -> "egg".contains(s);
+
+      System.out.println("brownEggs :" + brownEggs2.test("egg11"));
+      System.out.println("testEggs : " + testEggs.test("egg11"));
+
+      // 3 type
+      final Predicate<String> emptyEggs = String::isEmpty;
+
 
       Predicate<String> egg = s -> s.contains("egg");
       Predicate<String> brown = s -> s.contains("brown");

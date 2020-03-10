@@ -9,6 +9,10 @@ abstract class AbstractClassTester {
    private static int privateStaticMtd() {
       return 1;
    }
+
+   final int privateStaticMtd2() { // java 9 (remember this)
+      return 1;
+   }
 }
 
 interface ITester {
@@ -31,6 +35,10 @@ interface ITester {
    private static int privateStaticMtd() { // java 9 (remember this)
       return 1;
    }
+
+//   final int privateStaticMtd2() { // java 9 (remember this)
+//      return 1;
+//   }
 }
 
 class AbstractClassImplementation extends AbstractClassTester {
@@ -59,5 +67,32 @@ public class InterfaceTester implements ITester {
       AbstractClassTester abstractClassTester = new AbstractClassImplementation();
 
       // can not access private methods, this not a new thing for abstract classes :)
+   }
+}
+
+
+interface House {
+   public default String getAddress() {
+      return "101 Main Str";
+   }
+}
+
+interface Office {
+   public default String getAddress() {
+      return "101 Smart Str";
+   }
+}
+
+class HomeOffice implements House, Office {
+   @Override
+   public String getAddress() {
+      return "R No 1, Home";
+   }
+}
+
+class TestClass {
+   public static void main(String[] args) {
+      House h = new HomeOffice();
+      System.out.println(h.getAddress());
    }
 }

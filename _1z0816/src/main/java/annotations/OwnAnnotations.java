@@ -12,6 +12,8 @@ import java.lang.annotation.*;
    String os() default "Symbian"; // default values
 
    int version() default 1;
+
+   String[] stringArr() default {"Whatever"};
 }
 
 @SmartPhone(os = "Android", version = 1)
@@ -23,6 +25,14 @@ class NokiaASeries {
       this.model = model;
       this.size = size;
    }
+}
+
+@SmartPhone(os = "Android", version = 1)
+interface ABC { }
+
+@SmartPhone(os = "Android", version = 1, stringArr = "name")
+enum Days {
+   MON, TUES
 }
 
 public class OwnAnnotations {

@@ -28,7 +28,7 @@ public class ReviewTester {
       System.out.println("------------------------------4");
 
       Path path3 = Paths.get("src/main/resources/io/zoo.txt");
-      System.out.println(path3.subpath(1,3).getName(1).toAbsolutePath());
+      System.out.println(path3.subpath(1,2));
 
       System.out.println("------------------------------5");
 

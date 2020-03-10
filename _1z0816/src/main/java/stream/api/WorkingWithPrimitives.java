@@ -43,10 +43,10 @@ public class WorkingWithPrimitives {
       count.forEach(System.out::println);
 
       IntStream range = IntStream.range(1, 6);
-      range.forEach(System.out::println);
+      range.forEach( x -> System.out.println("range" + x));
 
       IntStream rangeClosed = IntStream.rangeClosed(1, 5);
-      rangeClosed.forEach(System.out::println);
+      rangeClosed.forEach( x -> System.out.println("rangeClosed" + x));
 
       Stream<String> objStream = Stream.of("penguin", "fish");
       IntStream intStream2 = objStream.mapToInt(s -> s.length());
@@ -67,7 +67,7 @@ public class WorkingWithPrimitives {
       System.out.println(sum); // 15
 
       DoubleStream doubles = DoubleStream.generate(() -> Math.PI);
-      OptionalDouble min = doubles.min(); // runs infinitely
+      //OptionalDouble min = doubles.min(); // runs infinitely
 
       System.out.println("----------------Summarizing Statistics");
 

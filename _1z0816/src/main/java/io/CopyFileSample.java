@@ -2,13 +2,12 @@ package io;
 
 import java.io.*;
 public class CopyFileSample {
-   public static void copy(File source, File destination) throws IOException {  // performance improvement for using both the Buffered classes
-                                                                              // and byte arrays is an order of magnitude faster in practice
+   public static void copy(File source, File destination) throws IOException {
       try (InputStream in = new FileInputStream(source);
            OutputStream out = new FileOutputStream(destination)) {
          int b;
          while((b = in.read()) != -1) {
-            out.write(b);
+            out.write(b);   // overriding copy
          }
       }
    }

@@ -2,8 +2,6 @@ package javamodularity.easytext.analysis.api;
 
 import java.util.List;
 import java.util.ServiceLoader;
-import java.util.stream.Stream;
-import java.util.stream.StreamSupport;
 
 public interface Analyzer {
 
