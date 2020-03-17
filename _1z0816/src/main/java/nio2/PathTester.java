@@ -13,11 +13,12 @@ public class PathTester {
 
       System.out.println("----------------------------------------------------Direct file access");
 
-      Path path1 = Paths.get("src/main/resources/io/zoo.txt"); // windows relative working
+      Path path1 = Paths.get("src/main/resources/././io/zoo.txt"); // windows relative working
       Path path2 = Paths.get("C:\\Users\\Ashan\\IdeaProjects\\java-816\\_1z0816\\src\\main\\resources\\io\\zoo.txt"); // windows personal
       //Path path3 = Paths.get("/home/zoo directory"); // linux or mac
 
       System.out.println(path1.toRealPath());
+      System.out.println(path2.getNameCount());
 
       System.out.println("----------------------------------------------------comma(,) separated");
 
@@ -189,7 +190,7 @@ public class PathTester {
          System.out.println("Path: " + "D:\\JavaSE\\SE 2\\work\\java-816\\_1z0816\\src\\main\\resources\\io\\a\\my2.txt");
          System.out.println("toRealPath: " + Paths.get( "D:\\JavaSE\\SE 2\\work\\java-816\\_1z0816\\src\\main\\resources\\io\\a\\my2.txt").toRealPath());
       } catch (IOException e) {
-         throw e;
+         //throw e;
       }
 
    }
