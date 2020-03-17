@@ -26,7 +26,7 @@ class Outer {
      static String a = "b";
    }
 
-   protected abstract class InnerAbstract  { abstract void abc(); }
+   private abstract class InnerAbstract  { abstract void abc(); }
 
    public class Inner extends EnumTester {    // Simple nested inner class    // 1. Nested Inner class
 

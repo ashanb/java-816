@@ -16,6 +16,7 @@ public class LocalizationTester {
               .setRegion("US")
               .build();
 
+
       System.out.println("Builder: " + l1.toString());
 
       Locale l2 = new Locale.Builder()
@@ -39,7 +40,9 @@ public class LocalizationTester {
       System.out.println("Changed Default:" + Locale.getDefault()); // fr
 
 
-      Locale myLoc = new Locale("fr", "FR");
+      //Locale myLoc = new Locale("fr", "FR");
+
+      Locale myLoc = new Locale.Builder ().setLanguage ("fr").setRegion ("FR").build();
 
       ResourceBundle rb = ResourceBundle.getBundle("appmessages", myLoc);
 
